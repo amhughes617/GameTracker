@@ -13,6 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+        Spark.externalStaticFileLocation("Public");
         Spark.init();
         Spark.get(
                 "/",
@@ -26,7 +27,6 @@ public class Main {
                         return new ModelAndView(m, "login.html");
                     }
                     else {
-                        m.put(name, user);
                         return new ModelAndView(user, "home.html");
                     }
                 }),
@@ -61,6 +61,9 @@ public class Main {
                     String gameName = request.queryParams("gameName");
                     String gameGenre= request.queryParams("gameGenre");
                     String platform = request.queryParams("gamePlatform");
+                    if (gameName == null || gameGenre == null || platform == null) {
+                        throw new Exception("Didnt receive all queryparams");
+                    }
                     int gameYear = Integer.valueOf(request.queryParams("gameYear"));
                     Game game = new Game(gameName, gameGenre, platform, gameYear);
                     users.get(user.name).games.add(game);
