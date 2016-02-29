@@ -1,0 +1,12 @@
+<html>
+<body>
+{{#games}}
+<a href="/edit?id={{id}}">{{name}} - {{genre}} - {{platform}} - {{releaseYear}}</a>
+<form action="/delete" method="post">
+    <input type="hidden" value="{{id}}" name="gameId">
+    <button type="submit">Delete</button>
+</form><br>
+{{/games}}
+<a href="/"><button type="reset">Return</button></a>
+</body>
+</html>
