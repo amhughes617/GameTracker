@@ -1,0 +1,24 @@
+<html>
+<body>
+<form action="/edit" method="post">
+    <input type="text" placeholder="{{name}}" name="name"/>
+    <select name="genre">
+        <option selected disabled>{{genre}}</option>
+        <option value="adventure">Adventure</option>
+        <option value="rpg">Rpg</option>
+        <option value="strategy">Strategy</option>
+        <option value="shooter">Shooter</option>
+    </select>
+    <select name="platform">
+        <option selected disabled>{{platform}}</option>
+        <option value="pc">PC</option>
+        <option value="ps4">PS4</option>
+        <option value="xbone">XBox One</option>
+        <option value="wiiu">Wii U</option>
+    </select>
+    <input type="number" placeholder="{{releaseYear}}"name="releaseYear">
+    <input type="hidden" value="{{id}}" name="id">
+    <button type="submit">Edit</button>
+</form>
+</body>
+</html>
